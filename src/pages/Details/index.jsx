@@ -1,3 +1,5 @@
+import "./stylex.css"
+
 
 export function Details() {
   
