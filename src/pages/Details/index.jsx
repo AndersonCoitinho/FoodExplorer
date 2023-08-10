@@ -1,9 +1,11 @@
-import "./stylex.css"
+import { Container } from './styles';
 
 
 export function Details() {
-  
-  return(
-    <h1>Hello</h1>
+
+  return (
+    <Container>
+      <h1>Hello</h1>
+    </Container>
   )
 }
