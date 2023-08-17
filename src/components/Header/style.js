@@ -13,11 +13,6 @@ export const Container = styled.header`
 
 export const Navbar = styled.div`
   height: 100%;
-  background-color: red;
-`;
-
-export const Logo = styled.div`
   display: flex;
   align-items: center;
-
 `;

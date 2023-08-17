@@ -1,4 +1,4 @@
-import { Container, Logo, Navbar } from './styles';
+import { Container, Logo, Navbar } from './style';
 
 import LogoUserWeb from '../../assets/logo_user_web.svg';
 
