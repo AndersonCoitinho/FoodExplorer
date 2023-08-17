@@ -16,3 +16,17 @@ export const Navbar = styled.div`
   display: flex;
   align-items: center;
 `;
+
+export const Logout = styled.button`
+  border: none;
+  background: none;
+
+  > svg {
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    font-size: 2.4rem
+  }
+`;
+
+export const Input = styled.div`
+  color: ${({ theme }) => theme.COLORS.LIGHT_100}; 
+`;
