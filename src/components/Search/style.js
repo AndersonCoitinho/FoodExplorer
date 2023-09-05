@@ -10,7 +10,9 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.COLORS.DARK_900};
   
   > input {
+    border: 0;
     background: transparent;
-    border: none;
+    width: 50rem;
+    color: ${({ theme }) => theme.COLORS.LIGHT_500}; 
   }
 `;

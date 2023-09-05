@@ -14,11 +14,12 @@ export function Header() {
           src={LogoUserWeb}
           alt="Logo Food Explorer">
         </img>
-        <ButtonHeader title="Pedidos (0)" />
 
         <Input>
           <Search placeholder="Busque por pratos ou ingredientes" icon={AiOutlineSearch} />
         </Input>
+
+        <ButtonHeader title="Pedidos (0)" />
 
         <Logout>
           <PiSignOut />
