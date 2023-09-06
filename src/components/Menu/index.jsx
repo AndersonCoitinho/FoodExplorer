@@ -11,6 +11,7 @@ export function Menu() {
       <Section>
         <ItemMenu />
         <ItemMenu />
+        <ItemMenu />
       </Section>
       
     </Container>

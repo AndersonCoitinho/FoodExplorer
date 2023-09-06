@@ -11,9 +11,8 @@ export function Details() {
   return (
     <Container>
       <Header />
-      
-      <RectangleFruit /> 
-      <Menu /> 
+      <RectangleFruit />
+      <Menu />
 
     </Container>
   )

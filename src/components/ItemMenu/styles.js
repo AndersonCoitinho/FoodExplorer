@@ -1,8 +1,8 @@
 import { styled } from "styled-components";
 
 export const Container = styled.header`
-  //color: ${({ theme }) => theme.COLORS.DARK_200};
-  color: red;
+  background-color: ${({ theme }) => theme.COLORS.DARK_200};
+  //background-color: red;
   width: 30rem;
   height: 46rem;
   display: flex;
