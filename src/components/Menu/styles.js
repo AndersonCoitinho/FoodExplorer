@@ -6,6 +6,7 @@ export const Container = styled.header`
   height: 52rem;
 
   background-color: black;
+  margin-bottom: 4.8rem;
 
   > h1 {
     font-family: 'Poppins', sans-serif;

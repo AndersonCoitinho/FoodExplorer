@@ -3,10 +3,10 @@ import { Container, Section } from './styles';
 import { ItemMenu } from '../../components/ItemMenu';
 
 
-export function Menu() {
+export function Menu({title}) {
   return (
     <Container>
-      <h1>Refeições</h1>
+      <h1>{title}</h1>
 
       <Section>
         <ItemMenu />
