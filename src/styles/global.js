@@ -12,7 +12,7 @@ export default createGlobalStyle`
   }
 
   body {
-    //background-color: ${({ theme }) => theme.COLORS.DARK_400};
+    background-color: ${({ theme }) => theme.COLORS.DARK_400};
     color: ${({ theme }) => theme.COLORS.WHITE};
     font-size: 1.6rem;
   }
