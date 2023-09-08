@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+    display: flex;
 
+    > img {
+        margin: 25% 0rem 43rem 25%;
+        width: 32rem;
+    }
+    
 `;
 
 export const Form = styled.form`
@@ -15,6 +21,8 @@ export const Form = styled.form`
     justify-content: space-between;
     align-items: center;
     border-radius: 16px;
+    margin-left: 30rem;
+    margin-top: 20rem;
 
     > h1 {
         font-size: 3.2rem;
