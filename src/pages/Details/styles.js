@@ -1,13 +1,39 @@
-import styled from 'styled-components';
+import styled from 'styled-components'; 
+ 
 
 export const Container = styled.div`
-  width: 100%;
-  height: 100vh;
+    color: ${({ theme }) => theme.COLORS.LIGHT_300};
 
-  display: grid;
-  grid-template-rows: 10.4rem auto;
-  grid-template-areas: 
-  "header"
-  "content";
-  justify-items: center;
+    > a {
+        text-decoration: none; 
+        color: inherit; 
+    }
 `;
+
+export const Dish = styled.div`
+    background: red;
+    width: 112rem;
+    display: flex;
+
+    > img {
+        width: 39rem
+    }
+`;
+
+export const Description = styled.div`
+    width: 68rem;
+    height: 30rem;
+    font-family: 'Poppins', sans-serif;
+
+    > h1 { 
+        font-weight: 500;
+    }
+
+    > p {
+        font-weight: 300;
+    }
+`;
+
+export const Inte = styled.div`
+`;
+
