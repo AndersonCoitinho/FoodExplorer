@@ -13,7 +13,7 @@ export const Container = styled.div`
 export const Form = styled.form`
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
     background-color: ${({ theme }) => theme.COLORS.DARK_700};
-    height: 54rem;
+    height: 62rem;
     width: 47rem;
     padding: 6.4rem;
     display: flex;

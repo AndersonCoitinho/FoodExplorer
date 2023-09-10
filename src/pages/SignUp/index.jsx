@@ -6,7 +6,7 @@ import { ButtonSign } from '../../components/ButtonSign'
 import LogoUserWeb from '../../assets/logo_user_web.svg';
 
 
-export function SignIn() {
+export function SignUp() {
     return (
         <Container>
             <img
@@ -14,8 +14,14 @@ export function SignIn() {
                 alt="Logo Food Explorer">
             </img>
             <Form>
-                <h1>Faça login</h1>
+                <h1>Crie sua conta</h1>
 
+
+                <Input
+                    title="Seu nome"
+                    placeholder="Exemplo: Maria da Silva"
+                    type="text"
+                />
 
                 <Input
                     title="Email"
@@ -29,9 +35,9 @@ export function SignIn() {
                     type="password"
                 />
 
-                <ButtonSign title="Entrar"/>
+                <ButtonSign title="Criar conta" />
 
-                Criar uma conta
+                Já tenho uma conta
             </Form>
         </Container>
     )
