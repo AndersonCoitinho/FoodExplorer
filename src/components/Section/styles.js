@@ -1,11 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-  > h2 {
-    margin-bottom: 1.6rem;
-    
-    color: ${({ theme }) => theme.COLORS.GRAY_100};
-    font-weight: 400;
-    font-size: 1.6rem;
-  }
+    margin: 28px 0;
+    > h2 {
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: ${({ theme }) => theme.COLORS.PINK };
+        padding-bottom: 16px;
+        margin-bottom: 28px;
+        color: ${({ theme }) => theme.COLORS.GRAY_100 };
+        font-size: 20px;
+        font-weight: 400;
+    }
 `;

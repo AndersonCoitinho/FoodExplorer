@@ -11,7 +11,6 @@ export const Container = styled.div`
 `;
 
 export const Dish = styled.div`
-    background: red;
     width: 112rem;
     display: flex;
 

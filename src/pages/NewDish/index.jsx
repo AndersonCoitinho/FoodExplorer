@@ -25,12 +25,14 @@ export function NewDish() {
                         placeholder="Ex.: Salada Ceasar"
                         type="text"
                     />
-
-                    <select id="categoria" name="categoria">
-                        <option value="opcao1">Refeição</option>
-                        <option value="opcao2">Sobremesa</option>
-                        <option value="opcao3">Bebida</option>
-                    </select>
+                    <div className='category'>
+                        Categoria
+                        <select id="categoria" name="categoria">
+                            <option value="opcao1">Refeição</option>
+                            <option value="opcao2">Sobremesa</option>
+                            <option value="opcao3">Bebida</option>
+                        </select>
+                    </div>
                 </div>
 
                 <Input
