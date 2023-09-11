@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  grid-area: header; //Para ficar fixo na tela
-
+  grid-area: header; 
+  display: flex;
+  justify-content: center;
   height: 10.4rem;
   width: 100%;
 

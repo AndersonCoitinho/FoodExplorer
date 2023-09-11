@@ -4,17 +4,15 @@ export function Ingredients({ data, ...rest }) {
     return (
         <Container {...rest}>
 
-
             {
-                data.ingredients &&
+                data.tags &&
 
                 <footer>
-                    {data.ingredients.map(ingredient => (
+                    {data.tags.map(ingredient => (
                         <div key={ingredient.id}>{ingredient.name}</div>
                     ))}
                 </footer>
             }
-
 
         </Container>
     )
