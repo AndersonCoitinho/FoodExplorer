@@ -29,12 +29,11 @@ export function Details({ data, ...rest }) {
                     <p>Rabanetes, folhas verdes e molho agrídoce salpicados com gergelim. O pão naan dá um toque especial.</p>
 
                     <Section>
-                        <Ingredient title="arroz" />
-
                         <Ingredients data={{
                             tags: [
                                 { id: '1', name: 'feijao' },
-                                { id: '2', name: 'pao de noll' }
+                                { id: '2', name: 'pao de noll' },
+                                { id: '3', name: 'alface' }
                             ]
                         }}
                         />

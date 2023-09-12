@@ -1,4 +1,5 @@
 import { Container } from "../Ingredient/styles";
+import { Ingredient } from "../Ingredient"
 
 export function Ingredients({ data, ...rest }) {
     return (
@@ -6,11 +7,10 @@ export function Ingredients({ data, ...rest }) {
 
             {
                 data.tags &&
-
                 <footer>
-                    {data.tags.map(ingredient => (
-                        <div key={ingredient.id}>{ingredient.name}</div>
-                    ))}
+                    {
+                        data.tags.map(ingredient => <Ingredient key={ingredient.id} title={ingredient.name} />)
+                    }
                 </footer>
             }
 
