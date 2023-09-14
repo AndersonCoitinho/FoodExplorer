@@ -6,4 +6,8 @@ export const Container = styled.span`
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     border-radius: 5px;
+
+
+    padding-top: 10px;
+    padding-bottom: 10px;
 `;

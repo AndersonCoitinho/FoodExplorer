@@ -3,11 +3,12 @@ import { AiOutlineLeft } from 'react-icons/ai'
 import { HeaderAdmin } from '../../components/HeaderAdmin'
 import { Input } from '../../components/Input'
 import { Footer } from '../../components/Footer'
+import { ButtonRemove } from '../../components/ButtonRemove'
 import { NoteIngredient } from '../../components/NoteIngredient'
 import { ButtonDish } from '../../components/ButtonDish'
 
 
-export function NewDish() {
+export function EditDish() {
     return (
         <Container>
             <HeaderAdmin />
@@ -56,6 +57,7 @@ export function NewDish() {
                 />
 
                 <ButtonDish title ="Salvar alterações" />
+                <ButtonRemove title ="Excluir prato" />
             </Form>
 
             <Footer />
