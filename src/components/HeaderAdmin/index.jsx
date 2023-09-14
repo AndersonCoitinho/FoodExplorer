@@ -3,7 +3,7 @@ import { PiSignOut } from 'react-icons/pi'
 import { AiOutlineSearch } from 'react-icons/ai'
 
 import LogoAdminWeb from '../../assets/logo_admin_web.svg';
-import { ButtonHeader } from '../ButtonHeader';
+import { ButtonHeaderAdmin } from '../ButtonHeaderAdmin';
 import { Search } from '../Search';
 
 export function HeaderAdmin() {
@@ -19,7 +19,7 @@ export function HeaderAdmin() {
           <Search placeholder="Busque por pratos ou ingredientes" icon={AiOutlineSearch} />
         </Input>
 
-        <ButtonHeader title="Novo Prato" />
+        <ButtonHeaderAdmin title="Novo Prato" />
 
         <Logout>
           <PiSignOut />

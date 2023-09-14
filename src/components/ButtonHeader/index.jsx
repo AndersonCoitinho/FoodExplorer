@@ -4,7 +4,7 @@ import { PiReceiptLight } from 'react-icons/pi'
 
 export function ButtonHeader({ title }) {
   return (
-    <Container 
+    <Container to="/newdish"
     type='button' 
     >
       <PiReceiptLight /> {title} 

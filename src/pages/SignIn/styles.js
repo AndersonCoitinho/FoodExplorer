@@ -27,6 +27,9 @@ export const Form = styled.form`
     > h1 {
         font-size: 3.2rem;
         font-family: 'Poppins', sans-serif;
-        
+    }
+
+    > a {
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
     }
 `;

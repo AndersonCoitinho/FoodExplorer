@@ -1,7 +1,7 @@
 import { Container, Form } from "./styles";
 import { Input } from '../../components/Input'
 import { ButtonSign } from '../../components/ButtonSign'
-
+import { Link } from 'react-router-dom'
 
 import LogoUserWeb from '../../assets/logo_user_web.svg';
 
@@ -29,9 +29,11 @@ export function SignIn() {
                     type="password"
                 />
 
-                <ButtonSign title="Entrar"/>
+                <ButtonSign title="Entrar" />
 
-                Criar uma conta
+                <Link to="/register">
+                    Criar uma conta
+                </Link>
             </Form>
         </Container>
     )

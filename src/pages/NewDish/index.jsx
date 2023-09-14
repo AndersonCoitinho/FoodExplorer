@@ -5,16 +5,16 @@ import { Input } from '../../components/Input'
 import { Footer } from '../../components/Footer'
 import { NoteIngredient } from '../../components/NoteIngredient'
 import { ButtonDish } from '../../components/ButtonDish'
-
+import { Link } from 'react-router-dom'
 
 export function NewDish() {
     return (
         <Container>
             <HeaderAdmin />
-            <a href="">
+            <Link to="/">
                 <AiOutlineLeft />
                 voltar
-            </a>
+            </Link>
             <h1>Adicionar prato</h1>
             <Form>
                 <div className="form-row">
