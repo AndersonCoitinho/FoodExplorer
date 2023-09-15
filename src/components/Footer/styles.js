@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  //color: ${({ theme }) => theme.COLORS.LIGHT_100};
-    
   background-color: ${({ theme }) => theme.COLORS.DARK_600};
   height: 7.7rem;
   width: 100%;

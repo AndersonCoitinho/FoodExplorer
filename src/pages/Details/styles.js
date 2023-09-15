@@ -51,6 +51,7 @@ export const Description = styled.div`
         gap: 3.3rem;
         margin-top: 4.8rem;
     }
+
 `;
 
 

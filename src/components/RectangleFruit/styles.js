@@ -24,6 +24,7 @@ export const Container = styled.header`
   > div > h1 {
     font-family: 'Poppins', sans-serif;
     font-size: 4rem;
+    font-weight: 500;
   }
 
   > div > p {
