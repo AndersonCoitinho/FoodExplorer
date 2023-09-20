@@ -3,10 +3,15 @@ import { Input } from '../../components/Input'
 import { ButtonSign } from '../../components/ButtonSign'
 import { Link } from 'react-router-dom'
 
+import { useAuth } from '../../hooks/auth'
+
 import LogoUserWeb from '../../assets/logo_user_web.svg';
 
 
 export function SignIn() {
+    const data = useAuth();
+    console.log("dawda", data)
+
     return (
         <Container>
             <img
