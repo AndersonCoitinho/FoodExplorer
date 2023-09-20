@@ -1,8 +1,9 @@
 import { Container } from './styles'
 
-export function ButtonSign({title}) {
+export function ButtonSign({title, ...rest}) {
     return (
-        <Container>
+        <Container 
+        type="button" {...rest}>
             {title}
         </Container>
     )
