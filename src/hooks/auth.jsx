@@ -10,6 +10,12 @@ function AuthProvider({ children }) {
     try {
       const response = await api.post("/sessions", { email, password });
       const { user, token } = response.data;
+      
+      if (!user.isAdmin) {
+        console.log("nao sou")
+      } else {
+        console.log("sou admin")
+      }
 
       localStorage.setItem("@foodexplorer:user", JSON.stringify(user));
       localStorage.setItem("@foodexplorer:token", token);

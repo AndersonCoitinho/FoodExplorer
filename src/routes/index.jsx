@@ -7,7 +7,14 @@ export function Routes() {
   const { user } = useAuth();
   return (
     <BrowserRouter>
+      {user && user.isAdmin ? <AppRoutes /> : <AuthRoutes />}
+    </BrowserRouter>
+  )
+  /*
+   return (
+    <BrowserRouter>
       {user ? <AppRoutes /> : <AuthRoutes />}
     </BrowserRouter>
   )
+  */
 }
