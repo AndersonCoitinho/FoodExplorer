@@ -1,12 +1,13 @@
 import { Container, Navbar, Logout, Input } from './style';
 import { PiSignOut } from 'react-icons/pi'
 import { AiOutlineSearch } from 'react-icons/ai'
-
+import { useAuth } from '../../hooks/auth'
 import LogoAdminWeb from '../../assets/logo_admin_web.svg';
 import { ButtonHeaderAdmin } from '../ButtonHeaderAdmin';
 import { Search } from '../Search';
 
 export function HeaderAdmin() {
+  const { signOut } = useAuth();
   return (
     <Container>
       <Navbar>
@@ -21,7 +22,7 @@ export function HeaderAdmin() {
 
         <ButtonHeaderAdmin title="Novo Prato" />
 
-        <Logout>
+        <Logout onClick={signOut}>
           <PiSignOut />
         </Logout>
 
