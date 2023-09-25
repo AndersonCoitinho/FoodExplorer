@@ -17,6 +17,10 @@ export function NewDish() {
         setNewIngredients("");
     }
 
+    function hangleRemoveIngredient(deleted) {
+        setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
+    }
+
 
     return (
         <Container>
@@ -54,7 +58,7 @@ export function NewDish() {
                             <NoteIngredient
                                 key={String(index)}
                                 value={ingredient}
-                                onClick={() => { }}
+                                onClick={() => hangleRemoveIngredient(ingredient)}
                             />
                         ))
                     }
