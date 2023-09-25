@@ -16,6 +16,7 @@ export const Navbar = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
+  gap: 3.2rem;
 `;
 
 export const Logout = styled.button`

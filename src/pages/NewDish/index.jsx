@@ -1,4 +1,5 @@
 import { Container, Form } from './styles'
+import { useState } from 'react'
 import { AiOutlineLeft } from 'react-icons/ai'
 import { HeaderAdmin } from '../../components/HeaderAdmin'
 import { Input } from '../../components/Input'
@@ -8,6 +9,15 @@ import { ButtonDish } from '../../components/ButtonDish'
 import { Link } from 'react-router-dom'
 
 export function NewDish() {
+    const [ingredients, setIngredients] = useState([])
+    const [newIngredients, setNewIngredients] = useState("")
+
+    function hangleAddIngredient() {
+        setIngredients(prevState => [...prevState, newIngredients]);
+        setNewIngredients("");
+    }
+
+
     return (
         <Container>
             <HeaderAdmin />
@@ -38,10 +48,24 @@ export function NewDish() {
                     </div>
                 </div>
 
-
-                    <NoteIngredient value="Pão Nann" />
-                    <NoteIngredient isNew placeholder="Adicionar" />
-
+                <div className="ingredient">
+                    {
+                        ingredients.map((ingredient, index) => (
+                            <NoteIngredient
+                                key={String(index)}
+                                value={ingredient}
+                                onClick={() => { }}
+                            />
+                        ))
+                    }
+                    <NoteIngredient
+                        isNew
+                        placeholder="Adicionar"
+                        value={newIngredients}
+                        onChange={e => setNewIngredients(e.target.value)}
+                        onClick={hangleAddIngredient}
+                    />
+                </div>
 
                 <Input
                     title="Preço"
@@ -55,7 +79,7 @@ export function NewDish() {
                     type="text"
                 />
 
-                <ButtonDish title ="Salvar alterações" />
+                <ButtonDish title="Salvar alterações" />
             </Form>
 
             <Footer />

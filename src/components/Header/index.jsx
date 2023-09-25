@@ -1,12 +1,13 @@
 import { Container, Navbar, Logout, Input } from './style';
 import { PiSignOut } from 'react-icons/pi'
 import { AiOutlineSearch } from 'react-icons/ai'
-
+import { useAuth } from '../../hooks/auth'
 import LogoUserWeb from '../../assets/logo_user_web.svg';
 import { ButtonHeader } from '../ButtonHeader';
 import { Search } from '../Search';
 
 export function Header() {
+  const { signOut } = useAuth();
   return (
     <Container>
       <Navbar>
@@ -21,7 +22,7 @@ export function Header() {
 
         <ButtonHeader title="Pedidos (0)" />
 
-        <Logout>
+        <Logout onClick={signOut}>
           <PiSignOut />
         </Logout>
 

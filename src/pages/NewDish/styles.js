@@ -6,6 +6,12 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
 
+    .ingredient {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
     > a {
         text-decoration: none; 
         color: inherit; 
