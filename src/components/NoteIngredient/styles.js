@@ -4,9 +4,9 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
 
-    background-color: ${({ theme, isNew }) => isNew ? "transparente" : theme.COLORS.LIGHT_600 };
+    background-color: ${({ theme, $isNew }) => $isNew ? "transparente" : theme.COLORS.LIGHT_600 };
 
-    border: ${({ isNew }) => isNew ? `2px dashed #7C7C8A` : 'none' };
+    border: ${({ $isNew }) => $isNew ? `2px dashed #7C7C8A` : 'none' };
 
     margin-bottom: 8px;
     border-radius: 10px;

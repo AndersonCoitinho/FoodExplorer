@@ -1,10 +1,10 @@
 import { Container } from './styles';
 
 
-export function ButtonDish({ title }) {
+export function ButtonDish({ title, ...rest }) {
   return (
     <Container
-      type='button'
+      type="button"
     > {title}
     </Container>
   )

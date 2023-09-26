@@ -7,10 +7,19 @@ import { Footer } from '../../components/Footer'
 import { NoteIngredient } from '../../components/NoteIngredient'
 import { ButtonDish } from '../../components/ButtonDish'
 import { Link } from 'react-router-dom'
+import { api } from '../../services/api'
+import { useNavigate } from 'react-router-dom'
 
 export function NewDish() {
+    const [name, setName] = useState("")
+    const [description, setDescription] = useState("")
+    const [value, setValue] = useState("")
+
+
     const [ingredients, setIngredients] = useState([])
     const [newIngredients, setNewIngredients] = useState("")
+
+    const navigate = useNavigate();
 
     function hangleAddIngredient() {
         setIngredients(prevState => [...prevState, newIngredients]);
@@ -19,6 +28,18 @@ export function NewDish() {
 
     function hangleRemoveIngredient(deleted) {
         setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
+    }
+
+    function handleNewIngredient() {
+        console.log("NewIngredient")
+        /*await api.post("/plates", {
+            name,
+            description,
+            value
+        });
+
+        alert("Prato Cadastrado");
+        navigate("/")*/
     }
 
 
@@ -41,7 +62,9 @@ export function NewDish() {
                         title="Nome"
                         placeholder="Ex.: Salada Ceasar"
                         type="text"
+                        onChange={e => setName(e.target.value)}
                     />
+
                     <div className='category'>
                         Categoria
                         <select id="categoria" name="categoria">
@@ -63,7 +86,7 @@ export function NewDish() {
                         ))
                     }
                     <NoteIngredient
-                        isNew
+                        $isNew
                         placeholder="Adicionar"
                         value={newIngredients}
                         onChange={e => setNewIngredients(e.target.value)}
@@ -75,15 +98,19 @@ export function NewDish() {
                     title="Preço"
                     placeholder="R$ 00,00"
                     type="text"
+                    onChange={e => setValue(e.target.value)}
                 />
 
                 <Input
                     title="Descrição"
                     placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
                     type="text"
+                    onChange={e => setDescription(e.target.value)}
                 />
 
-                <ButtonDish title="Salvar alterações" />
+                <ButtonDish
+                    title="Salvar alterações"
+                />
             </Form>
 
             <Footer />
