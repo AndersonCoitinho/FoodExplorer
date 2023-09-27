@@ -14,7 +14,6 @@ export function NewDish() {
     const [name, setName] = useState("")
     const [description, setDescription] = useState("")
     const [value, setValue] = useState("")
-    const [category, setCategory] = useState("")
 
     const [ingredients, setIngredients] = useState([])
     const [newIngredients, setNewIngredients] = useState("")
