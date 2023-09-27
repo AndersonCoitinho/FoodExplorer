@@ -14,7 +14,7 @@ export function NewDish() {
     const [name, setName] = useState("")
     const [description, setDescription] = useState("")
     const [value, setValue] = useState("")
-
+    const [category, setCategory] = useState("")
 
     const [ingredients, setIngredients] = useState([])
     const [newIngredients, setNewIngredients] = useState("")
@@ -30,16 +30,26 @@ export function NewDish() {
         setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
     }
 
-    function handleNewIngredient() {
-        console.log("NewIngredient")
-        /*await api.post("/plates", {
+    async function handleNewIngredient() {
+        if(!name || !description || !value){
+            return alert("Preencha todos os campos")
+        }
+
+        if (newIngredients) {
+            return alert(
+                "Você deixou uma tag no campo para adicionar, mas não clicou em adicionar. Clique para adicionar ou deixe o campo vazio."
+            )
+        }
+
+        await api.post("/plates", {
             name,
             description,
-            value
+            value,
+            ingredients
         });
 
         alert("Prato Cadastrado");
-        navigate("/")*/
+        navigate("/")
     }
 
 
@@ -110,6 +120,7 @@ export function NewDish() {
 
                 <ButtonDish
                     title="Salvar alterações"
+                    onClick={handleNewIngredient}
                 />
             </Form>
 
