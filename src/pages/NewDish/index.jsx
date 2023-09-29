@@ -11,6 +11,7 @@ import { api } from '../../services/api'
 import { useNavigate } from 'react-router-dom'
 
 export function NewDish() {
+    const [photo, setPhoto] = useState("")
     const [name, setName] = useState("")
     const [description, setDescription] = useState("")
     const [value, setValue] = useState("")
@@ -30,25 +31,37 @@ export function NewDish() {
     }
 
     async function handleNewIngredient() {
-        if(!name || !description || !value){
+        if (!name || !description || !value) {
             return alert("Preencha todos os campos")
         }
 
         if (newIngredients) {
             return alert(
-                "Você deixou uma tag no campo para adicionar, mas não clicou em adicionar. Clique para adicionar ou deixe o campo vazio."
+                "Você deixou um ingrediente no campo para adicionar, mas não clicou em adicionar. Clique para adicionar ou deixe o campo vazio."
             )
         }
 
-        await api.post("/plates", {
+        const dish_id = await api.post("/plates", {
             name,
             description,
             value,
             ingredients
         });
+        console.log("antes")
+        //console.log(response.data)
+        console.log(dish_id)
+        console.log("depois")
+        /*const id = response.data.foodplates_id
 
+        if (photo) {
+            const fileUploadForm = new FormData()
+            fileUploadForm.append('photo', photo)
+
+            await api.patch(`plates/photo/${id}`, fileUploadForm)
+        }
+        */
         alert("Prato Cadastrado");
-        navigate("/")
+        //navigate("/")
     }
 
 
@@ -65,6 +78,7 @@ export function NewDish() {
                     <Input
                         title="Imagem do prato"
                         type="file"
+                        onChange={e => setPhoto(e.target.value)}
                     />
 
                     <Input
