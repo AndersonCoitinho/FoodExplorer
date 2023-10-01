@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom'
 export function NewDish() {
     const [photo, setPhoto] = useState("")
     const [name, setName] = useState("")
+    const [category, setCategory] = useState(null)
     const [description, setDescription] = useState("")
     const [value, setValue] = useState("")
 
@@ -30,9 +31,30 @@ export function NewDish() {
         setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
     }
 
+    function formatCurrency(value) {
+        // Remove tudo o que não for dígito
+        const numericValue = value.replace(/\D/g, '');
+
+        // Formata para "R$ 00,00"
+        const formattedValue = (numericValue / 100).toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+        });
+
+        return formattedValue;
+    }
+
     async function handleNewIngredient() {
-        if (!name || !description || !value) {
+        if (!name || !description || !value || !photo) {
             return alert("Preencha todos os campos")
+        }
+
+        if (category === null) {
+            return alert("Selecione a categoria do prato")
+        }
+
+        if(ingredients.length === 0){
+            return alert("Inserir no minimo um ingrediente do prato")
         }
 
         if (newIngredients) {
@@ -41,25 +63,24 @@ export function NewDish() {
             )
         }
 
-        const dish_id = await api.post("/plates", {
+        const response = await api.post("/plates", {
             name,
             description,
+            category,
             value,
             ingredients
         });
-        console.log("antes")
-        //console.log(response.data)
-        console.log(dish_id)
-        console.log("depois")
-        /*const id = response.data.foodplates_id
+
+        const dish_id = response.data;
+        //console.log(dish_id);
 
         if (photo) {
             const fileUploadForm = new FormData()
             fileUploadForm.append('photo', photo)
 
-            await api.patch(`plates/photo/${id}`, fileUploadForm)
+            await api.patch(`plates/photo/${dish_id}`, fileUploadForm)
         }
-        */
+
         alert("Prato Cadastrado");
         //navigate("/")
     }
@@ -78,7 +99,7 @@ export function NewDish() {
                     <Input
                         title="Imagem do prato"
                         type="file"
-                        onChange={e => setPhoto(e.target.value)}
+                        onChange={e => setPhoto(e.target.files[0])}
                     />
 
                     <Input
@@ -90,10 +111,11 @@ export function NewDish() {
 
                     <div className='category'>
                         Categoria
-                        <select id="categoria" name="categoria">
-                            <option value="opcao1">Refeição</option>
-                            <option value="opcao2">Sobremesa</option>
-                            <option value="opcao3">Bebida</option>
+                        <select id="categoria" name="categoria" onChange={e => setCategory(e.target.value)}>
+                            <option value="null">Selecione uma opção</option>
+                            <option value="Refeição">Refeição</option>
+                            <option value="Sobremesa">Sobremesa</option>
+                            <option value="Bebida">Bebida</option>
                         </select>
                     </div>
                 </div>
@@ -121,7 +143,13 @@ export function NewDish() {
                     title="Preço"
                     placeholder="R$ 00,00"
                     type="text"
-                    onChange={e => setValue(e.target.value)}
+                    value={formatCurrency(value)}
+                    onChange={(e) => {
+                        // Remove todos os caracteres não numéricos
+                        const numericValue = e.target.value.replace(/\D/g, '');
+                        // Atualiza o estado apenas com os números
+                        setValue(numericValue);
+                    }}
                 />
 
                 <Input
