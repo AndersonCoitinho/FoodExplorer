@@ -82,7 +82,7 @@ export function NewDish() {
         }
 
         alert("Prato Cadastrado");
-        //navigate("/")
+        navigate("/")
     }
 
 

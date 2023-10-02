@@ -14,6 +14,14 @@ export function HomeAdmin() {
       <HeaderAdmin />
       <RectangleFruit />
       <Menu title="Refeições"/>
+
+
+
+
+
+
+
+      
       <Menu title="Sobremesas"/>
       <Menu title="Bebidas"/>
       <Footer />
