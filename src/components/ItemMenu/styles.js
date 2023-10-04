@@ -12,6 +12,10 @@ export const Container = styled.header`
     margin-top: 1.6rem;
   }
 
+  .selected {
+    color: red;
+  }
+
   .card {
     display: flex;
     flex-direction: column;
@@ -19,7 +23,8 @@ export const Container = styled.header`
   }
 
   > div > img {
-    width: 17.6rem;
+    max-width: 17.6rem;
+    max-height: 17.6rem;
     margin-top: 2.4rem;
   }
 

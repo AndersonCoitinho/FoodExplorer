@@ -113,7 +113,7 @@ export function NewDish() {
                         Categoria
                         <select id="categoria" name="categoria" onChange={e => setCategory(e.target.value)}>
                             <option value="null">Selecione uma opção</option>
-                            <option value="Refeição">Refeição</option>
+                            <option value="Refeicao">Refeição</option>
                             <option value="Sobremesa">Sobremesa</option>
                             <option value="Bebida">Bebida</option>
                         </select>
