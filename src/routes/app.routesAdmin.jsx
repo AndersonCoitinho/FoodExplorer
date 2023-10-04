@@ -11,7 +11,7 @@ export function AppRoutesAdmin() {
       <Route path="/" element={<HomeAdmin />} />
       <Route path="/newdish" element={<NewDish />} />
       <Route path="/editdish" element={<EditDish />} />
-      <Route path="/details" element={<Details />} />
+      <Route path="/details/:plates_id" element={<Details />} />
     </Routes>
   )
 }
