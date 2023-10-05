@@ -1,10 +1,11 @@
 import { Container } from './styles'
 import { useState } from 'react';
-
-
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
+import { useEffect } from 'react';
 
 export function Quantity() {
+
+
 
   const [quantity, setQuantity] = useState(1);
 
@@ -17,6 +18,10 @@ export function Quantity() {
       setQuantity(quantity - 1);
     }
   };
+
+  useEffect(() => {
+    console.log('Valor atual de quantity:', quantity);
+  }, [quantity]);
 
   return (
     <Container>

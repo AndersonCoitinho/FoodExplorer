@@ -2,7 +2,7 @@ import { Container } from './styles';
 import { Quantity } from '../Quantity'
 import { ButtonAdd } from '../ButtonAdd'
 import { MdFavoriteBorder } from 'react-icons/md'
-import photoPlaceholder from '../../assets/Gambe_400.svg';
+import photoPlaceholder from '../../assets/photoPlaceholder.jpg';
 import { api } from '../../services/api'
 import { useState } from 'react';
 

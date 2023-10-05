@@ -24,7 +24,8 @@ export const Dish = styled.div`
     margin: auto !important;
 
     > img {
-        width: 39rem
+        max-width: 39rem;
+        max-height: 39rem;
     }
 `;
 
