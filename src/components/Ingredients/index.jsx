@@ -1,19 +1,10 @@
 import { Container } from "../Ingredient/styles";
 import { Ingredient } from "../Ingredient"
 
-export function Ingredients({ data, ...rest }) {
+export function Ingredients({ title, ...rest }) {
     return (
         <Container {...rest}>
-
-            {
-                data.tags &&
-                <footer>
-                    {
-                        data.tags.map(ingredient => <Ingredient key={ingredient.id} title={ingredient.name} />)
-                    }
-                </footer>
-            }
-
+            {title}
         </Container>
     )
 }

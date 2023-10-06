@@ -6,9 +6,41 @@ import { Footer } from '../../components/Footer'
 import { ButtonRemove } from '../../components/ButtonRemove'
 import { NoteIngredient } from '../../components/NoteIngredient'
 import { ButtonDish } from '../../components/ButtonDish'
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { api } from '../../services/api'
 
 
 export function EditDish() {
+    const [isLoading, setIsLoading] = useState(true); // Estado para controlar se os dados estão sendo buscados
+
+    useEffect(() => {
+        async function fetchPlates() {
+            const response = await api.get(`/plates/${plates_id}`);
+            setResult(response.data.plates);
+            setIsLoading(false); // Marca que os dados foram buscados e a página está pronta para ser renderizada
+        }
+        fetchPlates();
+    }, []);
+
+
+    const [result, setResult] = useState()
+    const [title, setName] = useState(result?.name)
+    const [description, setDescription] = useState()
+    const [photo, setPhoto] = useState()
+    const [value, setValue] = useState()
+    const [category, setCategory] = useState()
+
+    const params = useParams();
+    const plates_id = params.plates_id
+
+
+    //console.log(result.name)
+
+    if (isLoading) {
+        return <div>Carregando...</div>; // Renderiza uma mensagem de carregamento enquanto os dados estão sendo buscados
+    }
+
     return (
         <Container>
             <HeaderAdmin />
@@ -28,6 +60,7 @@ export function EditDish() {
                         title="Nome"
                         placeholder="Ex.: Salada Ceasar"
                         type="text"
+                        value={title}
                     />
                     <div className='category'>
                         Categoria

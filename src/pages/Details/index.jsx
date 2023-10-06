@@ -23,7 +23,6 @@ export function Details({ data, ...rest }) {
     useEffect(() => {
         async function fetchPlates() {
             const response = await api.get(`/plates/${plates_id}`);
-            console.log(response.data.ingredients);
             setPlates(response.data.plates)
             setIngredients(response.data.ingredients)
         }
@@ -67,12 +66,7 @@ export function Details({ data, ...rest }) {
                         <h1>{plates.name}</h1>
                         <p>{plates.description}</p>
                         
-  
-                        {
-                            
-                            ingre &&
-                            <div>dadw</div>
-                            /*
+                        { ingre &&
                             <Section>
                                 {
                                     ingre.map(ingredient => (
@@ -80,11 +74,10 @@ export function Details({ data, ...rest }) {
                                             key={String(ingredient.plates_id)}
                                             title={ingredient.name}
                                         />
+                                        
                                     ))
                                 }
-                            </Section>
-                            */
-                            
+                            </Section>                            
                         }
 
 
