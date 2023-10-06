@@ -5,7 +5,7 @@ export const Container = styled.header`
   width: 30.4rem;
   height: 46.2rem;
 
-  .fav {
+  .top {
     font-size: 24px;
     position: absolute;
     margin-left: 25rem;

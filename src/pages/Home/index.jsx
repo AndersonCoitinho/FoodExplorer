@@ -13,9 +13,9 @@ export function Home() {
     <Container>
       <Header />
       <RectangleFruit />
-      <Menu title="Refeições"/>
-      <Menu title="Sobremesas"/>
-      <Menu title="Bebidas"/>
+      <Menu title="Refeições" category="Refeicao"/>
+      <Menu title="Sobremesas" category="Sobremesa"/>
+      <Menu title="Bebidas" category="Bebida"/>
       <Footer />
 
     </Container>

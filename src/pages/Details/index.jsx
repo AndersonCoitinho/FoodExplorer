@@ -13,6 +13,7 @@ import photoPlaceholder from '../../assets/photoPlaceholder.jpg';
 
 export function Details({ data, ...rest }) {
     const [plates, setPlates] = useState(null);
+    const [ingre, setIngredients] = useState(null);
 
     const params = useParams();
     const plates_id = params.plates_id
@@ -22,7 +23,9 @@ export function Details({ data, ...rest }) {
     useEffect(() => {
         async function fetchPlates() {
             const response = await api.get(`/plates/${plates_id}`);
-            setPlates(response.data)
+            console.log(response.data.ingredients);
+            setPlates(response.data.plates)
+            setIngredients(response.data.ingredients)
         }
 
         fetchPlates();
@@ -44,8 +47,8 @@ export function Details({ data, ...rest }) {
         return formattedValue;
     }
 
+    console.log(ingre)
     
-
     return (
         <Container {...rest}>
             <Header />
@@ -63,11 +66,16 @@ export function Details({ data, ...rest }) {
                     <Description>
                         <h1>{plates.name}</h1>
                         <p>{plates.description}</p>
+                        
+  
                         {
-                            plates.ingredients &&
+                            
+                            ingre &&
+                            <div>dadw</div>
+                            /*
                             <Section>
                                 {
-                                    plates.ingredients.map(ingredient => (
+                                    ingre.map(ingredient => (
                                         <Ingredients
                                             key={String(ingredient.plates_id)}
                                             title={ingredient.name}
@@ -75,6 +83,8 @@ export function Details({ data, ...rest }) {
                                     ))
                                 }
                             </Section>
+                            */
+                            
                         }
 
 

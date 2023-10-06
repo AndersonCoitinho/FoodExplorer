@@ -20,7 +20,7 @@ export function Quantity() {
   };
 
   useEffect(() => {
-    console.log('Valor atual de quantity:', quantity);
+    //console.log('Valor atual de quantity:', quantity);
   }, [quantity]);
 
   return (

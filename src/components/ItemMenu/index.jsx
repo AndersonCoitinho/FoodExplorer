@@ -2,17 +2,24 @@ import { Container } from './styles';
 import { Quantity } from '../Quantity'
 import { ButtonAdd } from '../ButtonAdd'
 import { MdFavoriteBorder } from 'react-icons/md'
+import { FiEdit2 } from 'react-icons/fi'
 import photoPlaceholder from '../../assets/photoPlaceholder.jpg';
 import { api } from '../../services/api'
 import { useState } from 'react';
-
+import { useAuth } from '../../hooks/auth';
+import { useNavigate } from 'react-router-dom';
 
 export function ItemMenu({ data, ...rest }) {
-
+  const { user } = useAuth()
   const [isFavorite, setIsFavorite] = useState(false);
   const toggleFavorite = () => {
     setIsFavorite(!isFavorite);
   };
+  const navigate = useNavigate();
+
+  function editDish(plates_id) {
+    navigate(`/editdish/${plates_id}`);
+  }
 
   const photoUrl = data.photo
     ? `${api.defaults.baseURL}/files/${data.photo}`
@@ -34,8 +41,16 @@ export function ItemMenu({ data, ...rest }) {
 
   return (
     <Container {...rest}>
-      <div className={`fav ${isFavorite ? 'selected' : ''}`} onClick={toggleFavorite}>
-        <MdFavoriteBorder />
+      <div className='top'>
+        {user.isAdmin === 1 ? (
+          <div className='edit' onClick={() => editDish(data.plates_id)}>
+            <FiEdit2 />
+          </div>
+        ) : (
+          <div className={`fav ${isFavorite ? 'selected' : ''}`} onClick={toggleFavorite}>
+            <MdFavoriteBorder />
+          </div>
+        )}
       </div>
 
       <div className='card'>
