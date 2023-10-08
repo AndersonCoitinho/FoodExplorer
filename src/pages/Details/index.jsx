@@ -47,7 +47,7 @@ export function Details({ data, ...rest }) {
     }
 
     console.log(ingre)
-    
+
     return (
         <Container {...rest}>
             <Header />
@@ -58,15 +58,17 @@ export function Details({ data, ...rest }) {
             {
                 plates &&
                 <Dish>
-                    <img
-                        src={photoUrl}
-                        alt={plates.name}>
-                    </img>
+                    <div className='image-container'>
+                        <img
+                            src={photoUrl}
+                            alt={plates.name}>
+                        </img>
+                    </div>
                     <Description>
                         <h1>{plates.name}</h1>
                         <p>{plates.description}</p>
-                        
-                        { ingre &&
+
+                        {ingre &&
                             <Section>
                                 {
                                     ingre.map(ingredient => (
@@ -74,10 +76,10 @@ export function Details({ data, ...rest }) {
                                             key={String(ingredient.plates_id)}
                                             title={ingredient.name}
                                         />
-                                        
+
                                     ))
                                 }
-                            </Section>                            
+                            </Section>
                         }
 
 

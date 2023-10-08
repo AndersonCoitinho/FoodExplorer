@@ -5,9 +5,17 @@ import { useAuth } from '../../hooks/auth'
 import LogoUserWeb from '../../assets/logo_user_web.svg';
 import { ButtonHeader } from '../ButtonHeader';
 import { Search } from '../Search';
+import { useNavigate } from 'react-router-dom';
 
 export function Header() {
   const { signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    signOut();
+    navigate('/'); 
+  };
+
   return (
     <Container>
       <Navbar>
@@ -22,7 +30,7 @@ export function Header() {
 
         <ButtonHeader title="Pedidos (0)" />
 
-        <Logout onClick={signOut}>
+        <Logout onClick={handleSignOut}>
           <PiSignOut />
         </Logout>
 

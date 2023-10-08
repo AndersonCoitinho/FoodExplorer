@@ -12,34 +12,40 @@ import { api } from '../../services/api'
 
 
 export function EditDish() {
-    const [isLoading, setIsLoading] = useState(true); // Estado para controlar se os dados estão sendo buscados
-
-    useEffect(() => {
-        async function fetchPlates() {
-            const response = await api.get(`/plates/${plates_id}`);
-            setResult(response.data.plates);
-            setIsLoading(false); // Marca que os dados foram buscados e a página está pronta para ser renderizada
-        }
-        fetchPlates();
-    }, []);
-
-
-    const [result, setResult] = useState()
-    const [title, setName] = useState(result?.name)
-    const [description, setDescription] = useState()
-    const [photo, setPhoto] = useState()
-    const [value, setValue] = useState()
-    const [category, setCategory] = useState()
+    const [result, setResult] = useState({});
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
+    const [photo, setPhoto] = useState('')
+    const [value, setValue] = useState('')
+    const [category, setCategory] = useState('')
 
     const params = useParams();
     const plates_id = params.plates_id
 
 
-    //console.log(result.name)
+    useEffect(() => {
+        async function fetchPlates() {
+            try {
+                const response = await api.get(`/plates/${plates_id}`);
+                const plateData = response.data.plates;
+                if (plateData) {
+                    setResult(plateData);
+                    setTitle(plateData.name);
+                    setDescription(plateData.description);
+                    setValue(plateData.value);
+                } else {
+                    console.error("Plate datas is undefined");
+                }
+            } catch (error) {
+                console.error("Error fetching plate data:", error);
+            }
+        }
+        fetchPlates();
+    }, [plates_id]);
 
-    if (isLoading) {
-        return <div>Carregando...</div>; // Renderiza uma mensagem de carregamento enquanto os dados estão sendo buscados
-    }
+
+
+
 
     return (
         <Container>
@@ -61,6 +67,7 @@ export function EditDish() {
                         placeholder="Ex.: Salada Ceasar"
                         type="text"
                         value={title}
+                        onChange={(e) => setTitle(e.target.value)}
                     />
                     <div className='category'>
                         Categoria
@@ -73,24 +80,26 @@ export function EditDish() {
                 </div>
 
 
-                    <NoteIngredient value="Pão Nann" />
-                    <NoteIngredient isNew placeholder="Adicionar" />
-
+                
 
                 <Input
                     title="Preço"
                     placeholder="R$ 00,00"
                     type="text"
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
                 />
 
                 <Input
                     title="Descrição"
                     placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
                     type="text"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                 />
 
-                <ButtonDish title ="Salvar alterações" />
-                <ButtonRemove title ="Excluir prato" />
+                <ButtonDish title="Salvar alterações" />
+                <ButtonRemove title="Excluir prato" />
             </Form>
 
             <Footer />

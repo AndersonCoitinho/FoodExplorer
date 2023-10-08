@@ -23,10 +23,18 @@ export const Dish = styled.div`
     display: flex;
     margin: auto !important;
 
-    > img {
+    .image-container {
+        min-width: 39rem;
+        min-height: 39rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    
+      .image-container img {
         max-width: 39rem;
         max-height: 39rem;
-    }
+      }
 `;
 
 export const Description = styled.div`

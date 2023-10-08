@@ -54,10 +54,12 @@ export function ItemMenu({ data, ...rest }) {
       </div>
 
       <div className='card'>
-        <img
-          src={photoUrl}
-          alt={data.name}
-        />
+        <div className='image-container'>
+          <img
+            src={photoUrl}
+            alt={data.name}
+          />
+        </div>
         <h1>{data.name}</h1>
         <p>{data.description}</p>
         <div className='money'>{valueFormat}</div>

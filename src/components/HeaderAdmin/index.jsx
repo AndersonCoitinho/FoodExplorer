@@ -5,9 +5,17 @@ import { useAuth } from '../../hooks/auth'
 import LogoAdminWeb from '../../assets/logo_admin_web.svg';
 import { ButtonHeaderAdmin } from '../ButtonHeaderAdmin';
 import { Search } from '../Search';
+import { useNavigate } from 'react-router-dom';
 
 export function HeaderAdmin() {
   const { signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    signOut();
+    navigate('/'); 
+  };
+
   return (
     <Container>
       <Navbar>
@@ -22,7 +30,7 @@ export function HeaderAdmin() {
 
         <ButtonHeaderAdmin title="Novo Prato" />
 
-        <Logout onClick={signOut}>
+        <Logout onClick={handleSignOut}>
           <PiSignOut />
         </Logout>
 

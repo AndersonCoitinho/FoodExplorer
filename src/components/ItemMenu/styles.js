@@ -22,10 +22,19 @@ export const Container = styled.header`
     align-items: center;
   }
 
-  > div > img {
+  .image-container {
+    min-width: 17.6rem;
+    min-height: 17.6rem;
+    margin-top: 2.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+  }
+
+  .image-container img {
     max-width: 17.6rem;
     max-height: 17.6rem;
-    margin-top: 2.4rem;
   }
 
   > div > h1 {
