@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom'
 import { api } from '../../services/api'
 import { useNavigate } from 'react-router-dom'
 
+
 export function NewDish() {
     const [photo, setPhoto] = useState("")
     const [name, setName] = useState("")

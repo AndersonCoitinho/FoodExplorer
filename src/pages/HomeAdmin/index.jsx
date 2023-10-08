@@ -1,6 +1,4 @@
 import { Container } from './styles';
-
-
 import { HeaderAdmin } from '../../components/HeaderAdmin';
 import { RectangleFruit } from '../../components/RectangleFruit';
 import { Menu } from '../../components/Menu';

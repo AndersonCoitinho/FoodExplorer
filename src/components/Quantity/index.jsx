@@ -4,11 +4,8 @@ import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 import { useEffect } from 'react';
 
 export function Quantity() {
-
-
-
   const [quantity, setQuantity] = useState(1);
-
+  
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
   };

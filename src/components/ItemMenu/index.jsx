@@ -3,11 +3,11 @@ import { Quantity } from '../Quantity'
 import { ButtonAdd } from '../ButtonAdd'
 import { MdFavoriteBorder } from 'react-icons/md'
 import { FiEdit2 } from 'react-icons/fi'
-import photoPlaceholder from '../../assets/photoPlaceholder.jpg';
 import { api } from '../../services/api'
 import { useState } from 'react';
 import { useAuth } from '../../hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import photoPlaceholder from '../../assets/photoPlaceholder.jpg';
 
 export function ItemMenu({ data, ...rest }) {
   const { user } = useAuth()

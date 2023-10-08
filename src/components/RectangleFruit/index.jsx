@@ -1,6 +1,6 @@
 import { Container } from './styles';
-
 import Fruit from '../../assets/fruit.svg';
+
 
 export function RectangleFruit() {
   return (

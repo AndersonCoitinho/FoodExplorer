@@ -50,7 +50,7 @@ export function EditDish() {
     return (
         <Container>
             <HeaderAdmin />
-            <a href="">
+            <a href="/">
                 <AiOutlineLeft />
                 voltar
             </a>

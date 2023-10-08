@@ -6,17 +6,14 @@ import { useNavigate } from 'react-router-dom';
 
 
 export function Menu({ title, category, }) {
-
   const [plates, setPlates] = useState([]);
   const navigate = useNavigate();
   
-
   useEffect(() => {
     async function fetchPlates() {
       const response = await api.get(`/plates?category=${category}`);
       setPlates(response.data);
     }
-
     fetchPlates();
   }, []);
 
@@ -29,14 +26,11 @@ export function Menu({ title, category, }) {
     }
     navigate(`/details/${plates_id}`);
   }
-
-  
-  
+ 
 
   return (
     <Container>
       <h1>{title}</h1>
-      
       <Section>
         {
           filteredPlates.map(plate => (
@@ -49,7 +43,6 @@ export function Menu({ title, category, }) {
         }        
 
       </Section>
-
     </Container>
   )
 }

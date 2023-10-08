@@ -1,6 +1,6 @@
 import { FiPlus, FiX } from 'react-icons/fi';
-
 import { Container } from './styles';
+
 
 export function NoteIngredient({ $isNew, value, onClick, ...rest }) {
     return (

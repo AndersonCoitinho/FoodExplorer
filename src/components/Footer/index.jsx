@@ -1,5 +1,4 @@
 import { Container } from './styles.js'
-
 import LogoFooter from '../../assets/logo_footer.svg';
 
 export function Footer() {
