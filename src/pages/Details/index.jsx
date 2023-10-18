@@ -46,7 +46,6 @@ export function Details({ data, ...rest }) {
         return formattedValue;
     }
 
-    console.log(ingre)
 
     return (
         <Container {...rest}>

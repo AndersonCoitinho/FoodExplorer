@@ -1,10 +1,11 @@
 import { Container } from './styles';
 
 
-export function ButtonRemove({ title }) {
+export function ButtonRemove({ title, onClick }) {
   return (
-    <Container
+    <Container 
       type='button'
+      onClick={onClick}
     > {title}
     </Container>
   )

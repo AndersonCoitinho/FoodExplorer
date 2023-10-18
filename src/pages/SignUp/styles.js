@@ -4,7 +4,7 @@ export const Container = styled.div`
     display: flex;
 
     > img {
-        margin: 20% 0rem 43rem 15%;
+        margin: 20% 0rem 43rem 20%;
         width: 32rem;
     }
     
@@ -22,7 +22,7 @@ export const Form = styled.form`
     align-items: center;
     border-radius: 16px;
     margin-left: 20rem;
-    margin-top: 10rem;
+    margin-top: 15rem;
 
     > h1 {
         font-size: 3.2rem;

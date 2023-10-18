@@ -9,6 +9,7 @@ import { ButtonDish } from '../../components/ButtonDish'
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { api } from '../../services/api'
+import { useNavigate } from 'react-router-dom';
 
 
 export function EditDish() {
@@ -21,7 +22,7 @@ export function EditDish() {
 
     const params = useParams();
     const plates_id = params.plates_id
-
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchPlates() {
@@ -44,6 +45,15 @@ export function EditDish() {
     }, [plates_id]);
 
 
+    async function handleRemove() {
+        const confirm = window.confirm("Deseja realmente remover o prato?");
+
+        if (confirm) {
+            await api.delete(`/plates/${plates_id}`);
+            navigate(-1)
+        }
+
+    }
 
 
 
@@ -80,7 +90,7 @@ export function EditDish() {
                 </div>
 
 
-                
+
 
                 <Input
                     title="Preço"
@@ -99,7 +109,10 @@ export function EditDish() {
                 />
 
                 <ButtonDish title="Salvar alterações" />
-                <ButtonRemove title="Excluir prato" />
+                <ButtonRemove 
+                    onClick={handleRemove}
+                    title="Excluir prato" 
+                />
             </Form>
 
             <Footer />

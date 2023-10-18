@@ -5,14 +5,17 @@ export const Container = styled.div`
   height: 4.8rem;
   display: flex;
   align-items: center;
-  
   border-radius: .5rem;
   background-color: ${({ theme }) => theme.COLORS.DARK_900};
+  padding: 12px 14rem;
+  
   
   > input {
     border: 0;
     background: transparent;
     width: 50rem;
     color: ${({ theme }) => theme.COLORS.LIGHT_500}; 
+    padding: 12px;
+    
   }
 `;
