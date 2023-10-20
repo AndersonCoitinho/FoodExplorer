@@ -7,9 +7,9 @@ export const Container = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
   bottom: 0;
   width: 100%;
+  position: fixed;
 
 
   > img {

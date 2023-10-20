@@ -23,8 +23,9 @@ export const Container = styled.div`
 export const Dish = styled.div`
     width: 112rem;
     display: flex;
-    margin: auto !important;
-
+    margin: auto;
+    margin-left: 20%;
+    
     .image-container {
         min-width: 39rem;
         min-height: 39rem;

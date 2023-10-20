@@ -32,4 +32,8 @@ export const Form = styled.form`
     > a {
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
     }
+
+    @media (max-width: 1750px) {
+        margin-top: 5rem;
+    }
 `;

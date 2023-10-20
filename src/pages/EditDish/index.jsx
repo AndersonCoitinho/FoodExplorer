@@ -13,10 +13,8 @@ import { useNavigate } from 'react-router-dom';
 
 
 export function EditDish() {
-    const [result, setResult] = useState({});
-    const [title, setTitle] = useState('')
+    const [name, setName] = useState('')
     const [description, setDescription] = useState('')
-    const [photo, setPhoto] = useState('')
     const [value, setValue] = useState('')
     const [category, setCategory] = useState('')
 
@@ -30,10 +28,10 @@ export function EditDish() {
                 const response = await api.get(`/plates/${plates_id}`);
                 const plateData = response.data.plates;
                 if (plateData) {
-                    setResult(plateData);
-                    setTitle(plateData.name);
+                    setName(plateData.name);
                     setDescription(plateData.description);
                     setValue(plateData.value);
+                    setCategory(plateData.category)
                 } else {
                     console.error("Plate datas is undefined");
                 }
@@ -43,7 +41,6 @@ export function EditDish() {
         }
         fetchPlates();
     }, [plates_id]);
-
 
     async function handleRemove() {
         const confirm = window.confirm("Deseja realmente remover o prato?");
@@ -55,6 +52,34 @@ export function EditDish() {
 
     }
 
+    async function updateDish() {
+        console.log(`/plates/${plates_id}`)
+        try {
+            await api.put(`/plates/${plates_id}`, {
+                name,
+                description,
+                value,
+                category
+            })
+            alert("Alterado o prato com sucesso")
+            navigate(-1)
+        } catch (error) {
+            console.error("Atençao: ", error)
+        }
+    }
+
+    function formatCurrency(value) {
+        // Remove tudo o que não for dígito
+        const numericValue = value.replace(/\D/g, '');
+
+        // Formata para "R$ 00,00"
+        const formattedValue = (numericValue / 100).toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+        });
+
+        return formattedValue;
+    }
 
 
     return (
@@ -76,15 +101,20 @@ export function EditDish() {
                         title="Nome"
                         placeholder="Ex.: Salada Ceasar"
                         type="text"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                     />
                     <div className='category'>
                         Categoria
-                        <select id="categoria" name="categoria">
-                            <option value="opcao1">Refeição</option>
-                            <option value="opcao2">Sobremesa</option>
-                            <option value="opcao3">Bebida</option>
+                        <select
+                            id="categoria"
+                            name="categoria"
+                            value={category} 
+                            onChange={(e) => setCategory(e.target.value)}
+                        >
+                            <option value="Refeicao">Refeição</option>
+                            <option value="Sobremesa">Sobremesa</option>
+                            <option value="Bebida">Bebida</option>
                         </select>
                     </div>
                 </div>
@@ -96,8 +126,13 @@ export function EditDish() {
                     title="Preço"
                     placeholder="R$ 00,00"
                     type="text"
-                    value={value}
-                    onChange={(e) => setValue(e.target.value)}
+                    value={formatCurrency(value)}
+                    onChange={(e) => {
+                        // Remove todos os caracteres não numéricos
+                        const numericValue = e.target.value.replace(/\D/g, '');
+                        // Atualiza o estado apenas com os números
+                        setValue(numericValue);
+                    }}
                 />
 
                 <Input
@@ -108,10 +143,13 @@ export function EditDish() {
                     onChange={(e) => setDescription(e.target.value)}
                 />
 
-                <ButtonDish title="Salvar alterações" />
-                <ButtonRemove 
+                <ButtonDish
+                    onClick={updateDish}
+                    title="Salvar alterações"
+                />
+                <ButtonRemove
                     onClick={handleRemove}
-                    title="Excluir prato" 
+                    title="Excluir prato"
                 />
             </Form>
 

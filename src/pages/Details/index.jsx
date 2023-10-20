@@ -3,10 +3,12 @@ import { AiOutlineLeft } from 'react-icons/ai'
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Header } from '../../components/Header'
+import { HeaderAdmin } from '../../components/HeaderAdmin'
 import { Footer } from '../../components/Footer'
 import { Ingredients } from '../../components/Ingredients'
 import { ButtonDish } from '../../components/ButtonDish'
 import { api } from '../../services/api'
+import { useAuth } from '../../hooks/auth';
 import { Section } from '../../components/Section'
 import { Quantity } from '../../components/Quantity'
 import photoPlaceholder from '../../assets/photoPlaceholder.jpg';
@@ -14,7 +16,7 @@ import photoPlaceholder from '../../assets/photoPlaceholder.jpg';
 export function Details({ data, ...rest }) {
     const [plates, setPlates] = useState(null);
     const [ingre, setIngredients] = useState(null);
-
+    const { user } = useAuth()
     const params = useParams();
     const plates_id = params.plates_id
 
@@ -49,7 +51,11 @@ export function Details({ data, ...rest }) {
 
     return (
         <Container {...rest}>
-            <Header />
+            {user.isAdmin === 1 ? (
+                <HeaderAdmin />
+            ) : (
+                <Header />
+            )}
             <a href="/">
                 <AiOutlineLeft />
                 voltar
