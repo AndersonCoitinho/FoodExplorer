@@ -3,10 +3,11 @@ import { useState } from 'react'
 import { AiOutlineLeft } from 'react-icons/ai'
 import { HeaderAdmin } from '../../components/HeaderAdmin'
 import { InputDish } from '../../components/InputDish'
+import { InputDishPhoto } from '../../components/InputDishPhoto'
 import { Footer } from '../../components/Footer'
 import { NoteIngredient } from '../../components/NoteIngredient'
 import { ButtonDish } from '../../components/ButtonDish'
-import { Link } from 'react-router-dom'
+import { TextArea } from '../../components/TextArea'
 import { api } from '../../services/api'
 import { useNavigate } from 'react-router-dom'
 
@@ -46,7 +47,7 @@ export function NewDish() {
     }
 
     async function handleNewIngredient() {
-        if (!name || !description || !value || !photo) {
+        if (!name || !value || !photo || !description ) {
             return alert("Preencha todos os campos")
         }
 
@@ -85,9 +86,12 @@ export function NewDish() {
         navigate("/")
     }
 
-    function handleBack(){
+    function handleBack() {
         navigate(-1)
     }
+
+    console.log(name)
+    console.log(description)
 
 
     return (
@@ -102,9 +106,8 @@ export function NewDish() {
             </Sup>
             <Form>
                 <div className="form-row">
-                    <InputDish
+                    <InputDishPhoto
                         title="Imagem do prato"
-                        type="file"
                         onChange={e => setPhoto(e.target.files[0])}
                     />
 
@@ -126,44 +129,49 @@ export function NewDish() {
                     </div>
                 </div>
 
-                <div className="ingredient">
-                    {
-                        ingredients.map((ingredient, index) => (
+                <div className='ingreValue'>
+                    <div className="ingredient">
+                        Ingredientes
+                        <div className="back">
+                            {
+                                ingredients.map((ingredient, index) => (
+                                    <NoteIngredient
+                                        key={String(index)}
+                                        value={ingredient}
+                                        onClick={() => hangleRemoveIngredient(ingredient)}
+                                    />
+                                ))
+                            }
                             <NoteIngredient
-                                key={String(index)}
-                                value={ingredient}
-                                onClick={() => hangleRemoveIngredient(ingredient)}
+                                $isNew
+                                placeholder="Adicionar"
+                                value={newIngredients}
+                                onChange={e => setNewIngredients(e.target.value)}
+                                onClick={hangleAddIngredient}
                             />
-                        ))
-                    }
-                    <NoteIngredient
-                        $isNew
-                        placeholder="Adicionar"
-                        value={newIngredients}
-                        onChange={e => setNewIngredients(e.target.value)}
-                        onClick={hangleAddIngredient}
+                        </div>
+                    </div>
+
+                    <InputDish
+                        title="Preço"
+                        placeholder="R$ 00,00"
+                        type="text"
+                        value={formatCurrency(value)}
+                        onChange={(e) => {
+                            // Remove todos os caracteres não numéricos
+                            const numericValue = e.target.value.replace(/\D/g, '');
+                            // Atualiza o estado apenas com os números
+                            setValue(numericValue);
+                        }}
                     />
                 </div>
-
-                <InputDish
-                    title="Preço"
-                    placeholder="R$ 00,00"
-                    type="text"
-                    value={formatCurrency(value)}
-                    onChange={(e) => {
-                        // Remove todos os caracteres não numéricos
-                        const numericValue = e.target.value.replace(/\D/g, '');
-                        // Atualiza o estado apenas com os números
-                        setValue(numericValue);
-                    }}
-                />
-
-                <InputDish
-                    title="Descrição"
-                    placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
-                    type="text"
-                    onChange={e => setDescription(e.target.value)}
-                />
+                <div className='descricao'>
+                    Descrição
+                    <TextArea
+                        placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+                        onChange={e => setDescription(e.target.value)}
+                    />
+                </div>
 
                 <Lad>
                     <ButtonDish

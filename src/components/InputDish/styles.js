@@ -6,6 +6,8 @@ export const Container = styled.section`
     align-items: center;
     flex-wrap: wrap;
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;  
 
     > input {
         border: 0;
@@ -15,7 +17,8 @@ export const Container = styled.section`
         width: 100%;
         padding: 12px;
         background: ${({ theme }) => theme.COLORS.DARK_800};
-        margin-top: 8px;
+        margin-top: 1.6rem;
+        outline: none;
     }
 
 `;

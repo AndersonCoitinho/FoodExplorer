@@ -29,17 +29,5 @@ export function Routes() {
     );
   }
 
-  /*
-  <BrowserRouter>
-      
-     {user && user.isAdmin ? <AppRoutes /> : <AuthRoutes />}
-    </BrowserRouter>
 
-
-   return (
-    <BrowserRouter>
-      {user ? <AppRoutes /> : <AuthRoutes />}
-    </BrowserRouter>
-  )
-  */
 }

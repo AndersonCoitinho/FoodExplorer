@@ -28,34 +28,71 @@ export const Form = styled.div`
     margin-top: 3.2rem;    
     width: 112rem;
     height: 50.8rem;
-
+    margin-bottom: 10rem;
     .form-row {
         display: flex;
         justify-content: space-between; 
         align-items: center;
+        gap: 3.2rem;
     }
 
     .form-row Input {
         margin-right: 10px; 
-      }
+    }
 
     #categoria {
-        border: 2px solid ${({ theme }) => theme.COLORS.LIGHT_700}; 
+        border: 0;
         border-radius: 5px;
         height: 4.8rem;
-        background:transparent;
+        background: ${({ theme }) => theme.COLORS.DARK_800};
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
         width: 36.4rem;
+        margin-top: 1.6rem;
+        outline: none;
     }
 
     #categoria option {
-    font-size: 14px;
-    color: #333;
-
-}
+        font-size: 14px;
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
+        background: transparent;
+    }   
 
     .category {
         margin-top: 8px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.6rem;  
+    }
+
+    .ingredient{
+        width: 83.7rem;
+        color: ${({ theme }) => theme.COLORS.LIGHT_400};
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.6rem;
+    }
+
+    .back {
+        background-color: ${({ theme }) => theme.COLORS.DARK_800};
+        display: flex;
+        width: 83.7rem;
+        height: 4.8rem;
+        gap: 1.6rem;
+        padding: 8px;
+        border-radius: 5px;
+        margin-top: 1.6rem;
+    }
+
+    .ingreValue {
+        display: flex;
+        gap: 3.2rem;
+        margin-top: 3.2rem;
+    }
+
+    .descricao {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.6rem;
+        color: ${({ theme }) => theme.COLORS.LIGHT_400};
+        margin-top: 3.2rem;
+        margin-button: 1.6rem;
     }
 `;
 

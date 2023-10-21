@@ -1,10 +1,11 @@
-import { Container, Form } from './styles'
+import { Container, Form, Lad, Sup } from './styles'
 import { AiOutlineLeft } from 'react-icons/ai'
 import { HeaderAdmin } from '../../components/HeaderAdmin'
-import { Input } from '../../components/Input'
+import { InputDish } from '../../components/InputDish'
+import { InputDishPhoto } from '../../components/InputDishPhoto'
+import { TextArea } from '../../components/TextArea'
 import { Footer } from '../../components/Footer'
 import { ButtonRemove } from '../../components/ButtonRemove'
-import { NoteIngredient } from '../../components/NoteIngredient'
 import { ButtonDish } from '../../components/ButtonDish'
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -68,6 +69,7 @@ export function EditDish() {
         }
     }
 
+
     function formatCurrency(value) {
         // Remove tudo o que não for dígito
         const numericValue = value.replace(/\D/g, '');
@@ -81,23 +83,29 @@ export function EditDish() {
         return formattedValue;
     }
 
+    function handleBack() {
+        navigate(-1)
+    }
+
 
     return (
         <Container>
             <HeaderAdmin />
-            <a href="/">
-                <AiOutlineLeft />
-                voltar
-            </a>
-            <h1>Adicionar prato</h1>
+            <Sup>
+                <button type='button' onClick={handleBack}>
+                    <AiOutlineLeft />
+                    voltar
+                </button>
+                <h1>Editar prato</h1>
+            </Sup>
             <Form>
                 <div className="form-row">
-                    <Input
+                    <InputDishPhoto
                         title="Imagem do prato"
-                        type="file"
+                        onChange={e => setPhoto(e.target.files[0])}
                     />
 
-                    <Input
+                    <InputDish
                         title="Nome"
                         placeholder="Ex.: Salada Ceasar"
                         type="text"
@@ -109,7 +117,7 @@ export function EditDish() {
                         <select
                             id="categoria"
                             name="categoria"
-                            value={category} 
+                            value={category}
                             onChange={(e) => setCategory(e.target.value)}
                         >
                             <option value="Refeicao">Refeição</option>
@@ -122,35 +130,42 @@ export function EditDish() {
 
 
 
-                <Input
-                    title="Preço"
-                    placeholder="R$ 00,00"
-                    type="text"
-                    value={formatCurrency(value)}
-                    onChange={(e) => {
-                        // Remove todos os caracteres não numéricos
-                        const numericValue = e.target.value.replace(/\D/g, '');
-                        // Atualiza o estado apenas com os números
-                        setValue(numericValue);
-                    }}
-                />
+                <div className='ingreValue'>
+                    <div className="ingredient">
+                        Ingredientes
+                    </div>
 
-                <Input
-                    title="Descrição"
-                    placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
-                    type="text"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                />
+                    <InputDish
+                        title="Preço"
+                        placeholder="R$ 00,00"
+                        type="text"
+                        value={formatCurrency(value)}
+                        onChange={(e) => {
+                            // Remove todos os caracteres não numéricos
+                            const numericValue = e.target.value.replace(/\D/g, '');
+                            // Atualiza o estado apenas com os números
+                            setValue(numericValue);
+                        }}
+                    />
+                </div>
+                <div className='descricao'>
+                    Descrição
+                    <TextArea
+                        placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+                        onChange={(e) => setDescription(e.target.value)}
+                    />
+                </div>
 
-                <ButtonDish
-                    onClick={updateDish}
-                    title="Salvar alterações"
-                />
-                <ButtonRemove
-                    onClick={handleRemove}
-                    title="Excluir prato"
-                />
+                <Lad>
+                    <ButtonDish
+                        onClick={updateDish}
+                        title="Salvar alterações"
+                    />
+                    <ButtonRemove
+                        onClick={handleRemove}
+                        title="Excluir prato"
+                    />
+                </Lad>
             </Form>
 
             <Footer />
