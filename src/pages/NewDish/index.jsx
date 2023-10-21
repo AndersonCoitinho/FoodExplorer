@@ -1,8 +1,8 @@
-import { Container, Form } from './styles'
+import { Container, Form, Lad, Sup } from './styles'
 import { useState } from 'react'
 import { AiOutlineLeft } from 'react-icons/ai'
 import { HeaderAdmin } from '../../components/HeaderAdmin'
-import { Input } from '../../components/Input'
+import { InputDish } from '../../components/InputDish'
 import { Footer } from '../../components/Footer'
 import { NoteIngredient } from '../../components/NoteIngredient'
 import { ButtonDish } from '../../components/ButtonDish'
@@ -54,7 +54,7 @@ export function NewDish() {
             return alert("Selecione a categoria do prato")
         }
 
-        if(ingredients.length === 0){
+        if (ingredients.length === 0) {
             return alert("Inserir no minimo um ingrediente do prato")
         }
 
@@ -73,7 +73,6 @@ export function NewDish() {
         });
 
         const dish_id = response.data;
-        //console.log(dish_id);
 
         if (photo) {
             const fileUploadForm = new FormData()
@@ -86,24 +85,30 @@ export function NewDish() {
         navigate("/")
     }
 
+    function handleBack(){
+        navigate(-1)
+    }
+
 
     return (
         <Container>
             <HeaderAdmin />
-            <Link to="/">
-                <AiOutlineLeft />
-                voltar
-            </Link>
-            <h1>Adicionar prato</h1>
+            <Sup>
+                <button type='button' onClick={handleBack}>
+                    <AiOutlineLeft />
+                    voltar
+                </button>
+                <h1>Adicionar prato</h1>
+            </Sup>
             <Form>
                 <div className="form-row">
-                    <Input
+                    <InputDish
                         title="Imagem do prato"
                         type="file"
                         onChange={e => setPhoto(e.target.files[0])}
                     />
 
-                    <Input
+                    <InputDish
                         title="Nome"
                         placeholder="Ex.: Salada Ceasar"
                         type="text"
@@ -140,7 +145,7 @@ export function NewDish() {
                     />
                 </div>
 
-                <Input
+                <InputDish
                     title="Preço"
                     placeholder="R$ 00,00"
                     type="text"
@@ -153,17 +158,19 @@ export function NewDish() {
                     }}
                 />
 
-                <Input
+                <InputDish
                     title="Descrição"
                     placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
                     type="text"
                     onChange={e => setDescription(e.target.value)}
                 />
 
-                <ButtonDish
-                    title="Salvar alterações"
-                    onClick={handleNewIngredient}
-                />
+                <Lad>
+                    <ButtonDish
+                        title="Salvar alterações"
+                        onClick={handleNewIngredient}
+                    />
+                </Lad>
             </Form>
 
             <Footer />

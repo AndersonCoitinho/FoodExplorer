@@ -16,10 +16,16 @@ export const Container = styled.div`
         text-decoration: none; 
         color: inherit; 
     }
+
+    > h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 32px;
+        font-weight: 600;
+    }
 `;
 
 export const Form = styled.div`
-    margin-top: 17.5rem;    
+    margin-top: 3.2rem;    
     width: 112rem;
     height: 50.8rem;
 
@@ -51,4 +57,36 @@ export const Form = styled.div`
     .category {
         margin-top: 8px;
     }
+`;
+
+export const Lad = styled.div`
+    margin-top: 3.2rem;
+    display: flex;
+    justify-content: flex-end;
+`;
+
+export const Sup = styled.div`
+    font-family: 'Poppins', sans-serif;
+    width: 112rem;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    
+    > button {
+        color: ${({ theme }) => theme.COLORS.LIGHT_300};
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 2.4rem;
+        border: none;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        margin-top: 4rem;
+    }
+
+    > h1 {
+        color: ${({ theme }) => theme.COLORS.LIGHT_300};
+        font-weight: 500;
+        margin-top: 2.4rem;
+    } 
 `;

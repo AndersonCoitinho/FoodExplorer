@@ -14,7 +14,7 @@ export const Container = styled.section`
         height: 48px;
         width: 100%;
         padding: 12px;
-        background: ${({ theme }) => theme.COLORS.DARK_900};
+        background: ${({ theme }) => theme.COLORS.DARK_800};
         margin-top: 8px;
     }
 

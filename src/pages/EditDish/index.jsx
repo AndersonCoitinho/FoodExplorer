@@ -33,10 +33,10 @@ export function EditDish() {
                     setValue(plateData.value);
                     setCategory(plateData.category)
                 } else {
-                    console.error("Plate datas is undefined");
+                    console.error("Dados indefinidos");
                 }
             } catch (error) {
-                console.error("Error fetching plate data:", error);
+                console.error("Erro ao buscar dados:", error);
             }
         }
         fetchPlates();
